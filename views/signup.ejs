@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Nodenest Signup</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    >
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/signup.css">
+</head>
+<body>
+<div class="container">
+    <div class="signup-card">
+        <div class="logo">
+            <h1>Nodenest</h1>
+        </div>
+        <h2>Create your account</h2>
+        <p class="subtitle">
+            Join Nodenest and start building your workflow, your way.
+        </p>
+        <% if(error){ %>
+            <p class="text-danger text-center"><%= error %></p>
+        <% } %>
+        <form method="POST" action="/signup">
+            <div class="input-box">
+                <input type="text" placeholder="Full name" name="name">
+            </div>
+            <div class="input-box">
+                <input type="email" placeholder="Email address" name="email">
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" name="password">
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Confirm password" name="confirmpassword">
+            </div>
+            <p class="password-text">
+                Password must be at least 8 characters
+            </p>
+            <button type="submit" class="signup-btn">
+                Sign up
+            </button>
+
+        </form>
+
+        <div class="divider">
+            <span>or continue with</span>
+        </div>
+        <div class="social-buttons">
+            <button type="button" class="btn btn-outline-secondary">Google</button>
+            <button type="button" class="btn btn-outline-secondary">Github</button>
+            <button type="button" class="btn btn-outline-secondary">Microsoft</button>
+<!--            <button type="button" class="btn btn-outline-secondary">Facebook</button>-->
+<!--            <button type="button" class="btn btn-outline-secondary">Twitter</button>-->
+        </div>
+        <p class="signin-text">
+            Already have an account?
+            <a href="#">Sign in</a>
+        </p>
+    </div>
+</div>
+</body>
+</html>

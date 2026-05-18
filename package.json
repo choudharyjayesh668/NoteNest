@@ -1,0 +1,26 @@
+{
+  "name": "notenest",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/choudharyjayesh668/NoteNest#readme",
+  "bugs": {
+    "url": "https://github.com/choudharyjayesh668/NoteNest/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/choudharyjayesh668/NoteNest.git"
+  },
+  "license": "ISC",
+  "author": "Jayesh Choudhary",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^5.0.2",
+    "express": "^5.2.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.6.2"
+  }
+}

@@ -1,0 +1,182 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    background: #f5f5f5;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup-card{
+    width: 100%;
+    max-width: 500px;
+    background: white;
+    padding: 35px;
+    border-radius: 24px;
+    border: 1px solid #e5e5e5;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.logo{
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.logo h1{
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.signup-card h2{
+    text-align: center;
+    font-size: 34px;
+    margin-bottom: 10px;
+}
+
+.subtitle{
+    text-align: center;
+    color: #666;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+}
+
+.input-box{
+    margin-bottom: 16px;
+}
+
+.input-box input{
+    width: 100%;
+    padding: 15px 18px;
+    border-radius: 12px;
+    border: 1px solid #dcdcdc;
+    font-size: 15px;
+    outline: none;
+    background: #fafafa;
+}
+
+.input-box input:focus{
+    border-color: black;
+    background: white;
+}
+
+.password-text{
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.signup-btn{
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 12px;
+    background: black;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.divider{
+    text-align: center;
+    margin: 25px 0;
+    position: relative;
+}
+
+.divider span{
+    background: white;
+    padding: 0 12px;
+    color: #777;
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+}
+
+.divider::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: #ddd;
+    left: 0;
+    top: 50%;
+}
+
+.social-buttons{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.social-buttons button{
+    flex: 1 1 140px;
+}
+
+.btn-outline-secondary{
+    background-color: #2d2d2d;
+    color: white;
+    border: 1px solid #2d2d2d;
+    transition: 0.3s;
+}
+
+.btn-outline-secondary:hover{
+    background-color: transparent;
+    color: #2d2d2d;
+    border: 1px solid #2d2d2d;
+}
+
+.signin-text{
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+}
+
+.signin-text a{
+    color: black;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+@media(max-width: 600px){
+
+    body{
+        padding: 12px;
+    }
+
+    .signup-card{
+        padding: 24px 18px;
+        border-radius: 18px;
+    }
+
+    .logo h1{
+        font-size: 28px;
+    }
+
+    .signup-card h2{
+        font-size: 28px;
+    }
+
+    .subtitle{
+        font-size: 14px;
+    }
+
+    .social-buttons{
+        flex-direction: column;
+    }
+
+}

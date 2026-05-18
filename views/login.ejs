@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+    >
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="login" method="post">
+        <div class="container d-flex justify-content-center align-items-center min-vh-100">
+            <div class="card p-4 shadow-sm border-0 login-card">
+                <div class="text-center mb-3">
+                    <h1 class="brand-name">Nodenest</h1>
+                </div>
+                <h2 class="text-center fw-bold mb-2">
+                    Welcome Back
+                </h2>
+                <p class="text-center text-secondary mb-4">
+                    Login to continue to your account
+                </p>
+                <% if(error){ %>
+                    <p class="text-danger text-center"><%= error %></p>
+                <% } %>
+                <form>
+                    <div class="mb-3">
+                        <input type="email" class="form-control custom-input" placeholder="Email Address" name="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <input type="password" class="form-control custom-input" placeholder="Password" name ="password">
+                    </div>
+                    <button class="btn login-btn w-100 mb-4">
+                        Login
+                    </button>
+                </form>
+                <div class="text-center mb-3">
+            <span class="text-secondary">
+                or continue with
+            </span>
+                </div>
+                <div class="social-buttons">
+                    <button type="button" class="btn btn-outline-secondary">Google</button>
+                    <button type="button" class="btn btn-outline-secondary">Github</button>
+                    <button type="button" class="btn btn-outline-secondary">Microsoft</button>
+                </div>
+                <p class="text-center mt-4 text-secondary">
+                    Don’t have an account?
+                    <a href="#" class="signup-link">
+                        Sign Up
+                    </a>
+                </p>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
