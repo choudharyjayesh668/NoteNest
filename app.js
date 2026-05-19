@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const path = require("path");
 const User = require("./models/user");
+const Note = require("./models/note");
 
 const app = express();
 
@@ -82,12 +83,40 @@ app.post("/login", async (req, res) => {
                 error:"Password Didnt Match"
             });
         }
-        res.render("NodeNest.ejs");
+        res.redirect("/nodenest");
     }catch(err){
         console.log(err);
         res.render("login.ejs",{
             error:"SomeThing Went Wrong"
         });
+    }
+});
+
+app.get("/nodenest", async (req, res) => {
+    let notes=await Note.find();
+    res.render("nodenest.ejs",{
+        notes,
+        error: null
+    });
+});
+
+app.get("/nodenest/new",(req, res) => {
+    res.render("newnote.ejs");
+});
+
+app.post("/nodenest/new", async (req, res) => {
+    let { title, description } = req.body;
+    console.log("Title:"+title);
+    console.log("Description:"+description);
+    let newNote=new Note({
+        title:title,
+        description:description,
+    });
+    try{
+        await newNote.save();
+        res.redirect("/nodenest");
+    }catch(err){
+        console.log("Data Was Not saved",err);
     }
 });
 
