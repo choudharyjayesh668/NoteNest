@@ -14,8 +14,6 @@ body{
     min-height:100vh;
 }
 
-/* SIDEBAR */
-
 .sidebar{
     width:260px;
     background:#111827;
@@ -84,8 +82,6 @@ body{
     color:#d1d5db;
 }
 
-/* CONTENT */
-
 .content{
     flex:1;
     padding:40px;
@@ -119,8 +115,6 @@ body{
 .heading-section p{
     color:gray;
 }
-
-/* NOTES */
 
 .notes-grid{
     display:grid;
