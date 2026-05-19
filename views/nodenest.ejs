@@ -52,6 +52,9 @@
                             <%= note.created_at.toDateString() %>
                         </span>
                     </div>
+                    <form action="/nodenest/<%= note._id %>?_method=DELETE" method="post">
+                        <button class="delete-btn">Delete</button>
+                    </form>
                 </div>
             <% } %>
         </div>

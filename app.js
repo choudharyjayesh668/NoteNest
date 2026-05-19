@@ -120,6 +120,12 @@ app.post("/nodenest/new", async (req, res) => {
     }
 });
 
+app.delete("/nodenest/:id",async (req, res) => {
+    let{id}=req.params;
+    await Note.findByIdAndDelete(id);
+    res.redirect("/nodenest");
+});
+
 app.listen(8080, () => {
     console.log("http://localhost:8080");
 });
