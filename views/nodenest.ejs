@@ -55,6 +55,9 @@
                     <form action="/nodenest/<%= note._id %>?_method=DELETE" method="post">
                         <button class="delete-btn">Delete</button>
                     </form>
+                    <form action="/nodenest/<%=note._id%>/edit" method="get">
+                        <button class="delete-btn">Edit</button>
+                    </form>
                 </div>
             <% } %>
         </div>

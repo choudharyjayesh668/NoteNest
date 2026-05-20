@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
-
 mongoose.connect("mongodb://127.0.0.1:27017/NoteNest")
     .then(() => {
         console.log("MongoDB Connected");
@@ -22,7 +21,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/NoteNest")
     .catch((err) => {
         console.log(err);
     });
-
+//Signup Page Route
 app.get("/", (req, res) => {
     res.render("signup.ejs",{
         error: null
@@ -59,7 +58,7 @@ app.post("/signup", async (req, res) => {
         res.send("Error saving user");
     }
 });
-
+//Login Page Route
 app.get("/login", (req, res) => {
     res.render("login.ejs",{
         error: null
@@ -91,7 +90,7 @@ app.post("/login", async (req, res) => {
         });
     }
 });
-
+//Accessing HomePage Route
 app.get("/nodenest", async (req, res) => {
     let notes=await Note.find();
     res.render("nodenest.ejs",{
@@ -99,7 +98,7 @@ app.get("/nodenest", async (req, res) => {
         error: null
     });
 });
-
+//Creating New Note Route
 app.get("/nodenest/new",(req, res) => {
     res.render("newnote.ejs");
 });
@@ -119,13 +118,21 @@ app.post("/nodenest/new", async (req, res) => {
         console.log("Data Was Not saved",err);
     }
 });
-
+//Deleting Note Route
 app.delete("/nodenest/:id",async (req, res) => {
     let{id}=req.params;
     await Note.findByIdAndDelete(id);
     res.redirect("/nodenest");
 });
+//Edit Page Route
+app.get("/nodenest/:id/edit", async (req, res) => {
+    let {id}=req.params;
+    let note=await chat.findById(id);
+    res.render("edit.ejs",{note});
+});
+//Update Route
 
+//Listen Route
 app.listen(8080, () => {
     console.log("http://localhost:8080");
 });

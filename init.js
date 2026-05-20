@@ -31,6 +31,46 @@ let AllNotes = [
     {
         title: "Interview Preparation",
         description: "Revise Java OOP concepts and DBMS basics."
+    },
+    {
+        title: "Learn Express Routing",
+        description: "Practice GET, POST, PATCH and DELETE routes in Express."
+    },
+    {
+        title: "MongoDB Revision",
+        description: "Revise Mongoose schemas, models and CRUD operations."
+    },
+    {
+        title: "DSA Practice",
+        description: "Solve 3 array problems and 2 linked list questions today."
+    },
+    {
+        title: "Build NoteNest UI",
+        description: "Improve homepage design and add hover effects to cards."
+    },
+    {
+        title: "GitHub Upload",
+        description: "Push latest NoteNest changes and update README."
+    },
+    {
+        title: "Authentication Idea",
+        description: "Research login and signup using passport.js."
+    },
+    {
+        title: "Edit Route Testing",
+        description: "Check if note editing updates correctly in MongoDB."
+    },
+    {
+        title: "Delete Feature",
+        description: "Add confirmation popup before deleting notes."
+    },
+    {
+        title: "Daily Goals",
+        description: "Complete Node.js learning session for 2 hours."
+    },
+    {
+        title: "Portfolio Project",
+        description: "Think about adding dark mode to NoteNest."
     }
 ];
 Note.insertMany(AllNotes);
