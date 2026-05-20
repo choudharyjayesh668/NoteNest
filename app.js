@@ -127,12 +127,29 @@ app.delete("/nodenest/:id",async (req, res) => {
 //Edit Page Route
 app.get("/nodenest/:id/edit", async (req, res) => {
     let {id}=req.params;
-    let note=await chat.findById(id);
+    let note=await Note.findById(id);
     res.render("edit.ejs",{note});
 });
 //Update Route
+app.put("/nodenest/:id", async (req, res) => {
+     let{id}=req.params;
 
+     let {title, description} = req.body;
+     console.log("Title:"+title);
+     console.log("Description:"+description);
+     let updatednote= await Note.findByIdAndUpdate(
+         id,{
+             title,
+             description,
+         },
+         {
+             runValidators:true,
+             new:true
+         });
+     console.log(updatednote);
+    res.redirect("/nodenest");
+});
 //Listen Route
 app.listen(8080, () => {
-    console.log("http://localhost:8080");
+    console.log("http://localhost:8080/nodenest");
 });
