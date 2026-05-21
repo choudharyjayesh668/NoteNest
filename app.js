@@ -82,7 +82,7 @@ app.post("/login", async (req, res) => {
                 error:"Password Didnt Match"
             });
         }
-        res.redirect("/nodenest");
+        res.redirect("/notenest");
     }catch(err){
         console.log(err);
         res.render("login.ejs",{
@@ -91,19 +91,19 @@ app.post("/login", async (req, res) => {
     }
 });
 //Accessing HomePage Route
-app.get("/nodenest", async (req, res) => {
+app.get("/notenest", async (req, res) => {
     let notes=await Note.find();
-    res.render("nodenest.ejs",{
+    res.render("notenest.ejs",{
         notes,
         error: null
     });
 });
 //Creating New Note Route
-app.get("/nodenest/new",(req, res) => {
+app.get("/notenest/new",(req, res) => {
     res.render("newnote.ejs");
 });
 
-app.post("/nodenest/new", async (req, res) => {
+app.post("/notenest/new", async (req, res) => {
     let { title, description } = req.body;
     console.log("Title:"+title);
     console.log("Description:"+description);
@@ -113,25 +113,25 @@ app.post("/nodenest/new", async (req, res) => {
     });
     try{
         await newNote.save();
-        res.redirect("/nodenest");
+        res.redirect("/notenest");
     }catch(err){
         console.log("Data Was Not saved",err);
     }
 });
 //Deleting Note Route
-app.delete("/nodenest/:id",async (req, res) => {
+app.delete("/notenest/:id",async (req, res) => {
     let{id}=req.params;
     await Note.findByIdAndDelete(id);
-    res.redirect("/nodenest");
+    res.redirect("/notenest");
 });
 //Edit Page Route
-app.get("/nodenest/:id/edit", async (req, res) => {
+app.get("/notenest/:id/edit", async (req, res) => {
     let {id}=req.params;
     let note=await Note.findById(id);
     res.render("edit.ejs",{note});
 });
 //Update Route
-app.put("/nodenest/:id", async (req, res) => {
+app.put("/notenest/:id", async (req, res) => {
      let{id}=req.params;
 
      let {title, description} = req.body;
@@ -147,9 +147,19 @@ app.put("/nodenest/:id", async (req, res) => {
              new:true
          });
      console.log(updatednote);
-    res.redirect("/nodenest");
+    res.redirect("/notenest");
 });
+//Search Quary
+app.get("/notenest/search", async ( req , res )=> {
+    let{q}=req.query;
+    console.log("Search:"+q);
+    let notes= await Note.find({
+        title:{$regex:q,$options:"i"},
+    });
+    res.render("notenest.ejs",{notes});
+});
+
 //Listen Route
 app.listen(8080, () => {
-    console.log("http://localhost:8080/nodenest");
+    console.log("http://localhost:8080/notenest");
 });

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NoteNest</title>
+    <link rel="stylesheet" href="/css/notenest.css">
+</head>
+<body>
+<div class="main-container">
+    <div class="sidebar">
+        <div>
+            <h1 class="logo">NoteNest</h1>
+            <a href="/notenest/new" class="new-note-btn">
+                + New Note
+            </a>
+            <div class="menu">
+                <div class="menu-item active">
+                    All Notes
+                </div>
+                <div class="menu-item">
+                    Favorites
+                </div>
+                <div class="menu-item">
+                    Trash
+                </div>
+            </div>
+        </div>
+        <div class="profile-box">
+            <h5>Jayesh Choudhary</h5>
+            <p>NoteNest User</p>
+        </div>
+    </div>
+    <div class="content">
+        <div class="topbar">
+            <form action="/notenest/search" method="GET" class="search-form">
+                <input type="text" name="q" placeholder="Search notes..." required class="search-bar">
+                <button type="submit" class="search-btn">Search</button>
+            </form>
+        </div>
+        <div class="heading-section">
+            <div>
+                <h1>All Notes</h1>
+                <p><%= notes.length %> notes</p>
+            </div>
+        </div>
+        <div class="notes-grid">
+            <% for(let note of notes) { %>
+                <div class="note-card">
+                    <div>
+                        <div class="card-top">
+                            <h3><%= note.title %></h3>
+                        </div>
+                        <p class="note-description">
+                            <%= note.description %>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <span class="date">
+                            <%= note.created_at.toDateString() %>
+                        </span>
+                        <div class="card-buttons">
+                            <form action="/notenest/<%= note._id %>?_method=DELETE" method="POST">
+                                <button class="delete-btn">Delete</button>
+                            </form>
+                            <form action="/notenest/<%= note._id %>/edit" method="GET">
+                                <button class="edit-btn">Edit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+</body>
+</html>

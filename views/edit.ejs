@@ -23,7 +23,7 @@
 
     <div class="new-note">
         <h2>Update Note</h2>
-        <form action="/nodenest/<%= note._id %>?_method=PUT" method="POST">
+        <form action="/notenest/<%= note._id %>?_method=PUT" method="POST">
             <input type="text" name="title" placeholder="Enter New Title"  required>
             <textarea name="description" placeholder="Enter New Description" required></textarea>
             <button type="submit">Update Note</button>
